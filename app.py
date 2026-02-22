@@ -32,7 +32,7 @@ def dispatch():
 
     return jsonify({
         "status": "Emergency dispatched successfully",
-        "received": data
+        "data": data
     }), 200
     data = request.get_json()
 
