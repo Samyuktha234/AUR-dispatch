@@ -20,7 +20,8 @@ AURA is an AI-powered emergency response system that detects medical emergencies
 
 ## Deployment
 Backend deployed on Render:
-https://your-render-url.onrender.com
+"https://aur-dispatch.onrender.com/dispatch"
+
 
 ## How It Works
 1. AI detects emergency event.
