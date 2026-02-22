@@ -31,14 +31,7 @@ async function main() {
     })
     setContext("dispatch_response", response.data)
     console.log("Dispatch API responded:", response.data)
-    // ✅ ADD FROM HERE
-const {
-  ambulance_id,
-  nearest_hospital,
-  estimated_arrival_minutes,
-  confidence,
-  lat,
-  lng
+    /
 } = response.data
 
 const alertMsg = `
