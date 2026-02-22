@@ -23,20 +23,10 @@ const from = process.env.TWILIO_FROM_NUMBER
 const to = process.env.TWILIO_TO_NUMBER
 
 const client = twilio(accountSid, authToken)
+const alertMsg = AURA EMERGENCY ALERT 🚨
 
-const alertMsg = `🚨 AURA EMERGENCY ALERT\n` + `Ambulance ID: ${{ambulance_id}\n` + `Hospital: ${{hospital}\n` + `ETA: ${{eta_minutes}}minutes} minute\n` + `Confidence: ${event.confidence_score}\n` + `Lat/Lng: ${event.lat},${event.lng}`
-
-client.messages
-  .create({
-    body: alertMsg,
-    from,
-    to
-  })
-  .then(message => {
-    setContext("notification_result", { sid: message.sid, status: message.status })
-    console.log("Twilio SMS sent, SID:", message.sid)
-  })
-  .catch(e => {
-    console.error("Twilio SMS failed:", e.message)
-    setContext("notification_result", null)
-  })
+Ambulance ID: {{ambulance_id}}
+Hospital: {{nearest_hospital}}
+ETA: {{estimated_arrival_minutes}} minutes
+Confidence: {{confidence}}
+Lat/Lng: {{lat}},{{lng}}
