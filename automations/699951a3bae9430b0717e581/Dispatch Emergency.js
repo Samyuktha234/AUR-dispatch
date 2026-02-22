@@ -1,5 +1,4 @@
-
-import axios from "axios"
+const axios = require("axios")
 
 async function main() {
   try {
@@ -7,12 +6,15 @@ async function main() {
     const apiKey = process.env.DISPATCH_API_KEY
 
     // Payload sent to Flask backend
+    const lat = getContext("lat")
+    const lng = getContext("lng")
+    const severity = getContext("severity")
     const payload = {
       patient_location: {
-        lat: context.lat,
-        lng: context.lng
+        lat: lat,
+        lng: lng
       },
-      severity: context.severity || 1
+      severity: severity || 1
     }
 
     const response = await axios.post(apiUrl, payload, {
@@ -27,7 +29,6 @@ async function main() {
 
     // ✅ Save backend response to Turbotic context
     setContext("dispatch_response", response.data)
-
   } catch (error) {
     console.error("Dispatch API error:", error.message)
     throw error

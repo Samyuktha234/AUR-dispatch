@@ -21,4 +21,7 @@ const simulatedEvent = {
 
 console.log("Simulating AI Detection: Created event:", simulatedEvent)
 setContext("emergency_event", simulatedEvent)
+setContext("lat", simulatedEvent.lat)
+setContext("lng", simulatedEvent.lng)
+setContext("severity", simulatedEvent.severity)
 console.log("Emergency event simulated and passed to context.")

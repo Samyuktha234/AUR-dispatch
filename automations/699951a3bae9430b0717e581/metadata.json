@@ -1,21 +1,21 @@
 {
   "automationId": "699951a3bae9430b0717e581",
   "automationName": "Unnamed Automation",
-  "version": "v16",
+  "version": "v17",
   "mode": "multi-file",
   "dependencies": [
     {
-      "id": "1771665149877_12",
+      "id": "1771744578089_13",
       "name": "axios",
       "version": "latest"
     },
     {
-      "id": "1771665149877_13",
+      "id": "1771744578089_14",
       "name": "twilio",
       "version": "latest"
     },
     {
-      "id": "1771665149877_14",
+      "id": "1771744578089_15",
       "name": "fs",
       "version": "latest"
     }
@@ -27,11 +27,12 @@
     "AI_SEVERITY_MAX",
     "SIMULATION_LAT",
     "SIMULATION_LNG",
-    "AURA_DISPATCH_API_KEY",
+    "DISPATCH_API_URL",
+    "DISPATCH_API_KEY",
     "TWILIO_ACCOUNT_SID",
     "TWILIO_AUTH_TOKEN",
     "TWILIO_FROM_NUMBER",
     "TWILIO_TO_NUMBER"
   ],
-  "syncedAt": "2026-02-22T07:14:04.646Z"
+  "syncedAt": "2026-02-22T07:28:51.296Z"
 }
