@@ -24,7 +24,7 @@ const to = process.env.TWILIO_TO_NUMBER
 
 const client = twilio(accountSid, authToken)
 
-const alertMsg = `🚨 AURA EMERGENCY ALERT\n` + `Ambulance ID: ${dispatch.ambulance_id}\n` + `Hospital: ${dispatch.nearest_hospital}\n` + `ETA: ${dispatch.estimated_arrival_minutes} minutes\n` + `Confidence: ${event.confidence_score}\n` + `Lat/Lng: ${event.lat},${event.lng}`
+const alertMsg = `🚨 AURA EMERGENCY ALERT\n` + `Ambulance ID: ${{ambulance_id}\n` + `Hospital: ${{hospital}\n` + `ETA: ${{eta_minutes}}minutes} minute\n` + `Confidence: ${event.confidence_score}\n` + `Lat/Lng: ${event.lat},${event.lng}`
 
 client.messages
   .create({
