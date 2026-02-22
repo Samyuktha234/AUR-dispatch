@@ -31,6 +31,31 @@ async function main() {
     })
     setContext("dispatch_response", response.data)
     console.log("Dispatch API responded:", response.data)
+    // ✅ ADD FROM HERE
+const {
+  ambulance_id,
+  nearest_hospital,
+  estimated_arrival_minutes,
+  confidence,
+  lat,
+  lng
+} = response.data
+
+const alertMsg = `
+AURA EMERGENCY ALERT 🚨
+
+Ambulance ID: ${ambulance_id}
+Hospital: ${nearest_hospital}
+ETA: ${estimated_arrival_minutes} minutes
+Confidence: ${confidence}
+Lat/Lng: ${lat},${lng}
+`
+
+await client.messages.create({
+  body: alertMsg,
+  from: from,
+  to: to
+})
   } catch (error) {
     if (error.response) {
       console.error(`Dispatch API error: HTTP ${error.response.status} -`, error.response.data)
