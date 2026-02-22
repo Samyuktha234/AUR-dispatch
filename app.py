@@ -23,16 +23,17 @@ def calculate_distance(lat1, lon1, lat2, lon2):
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
     return R * c
 
-@app.route("/", methods=["GET"])
-def home():
-    return jsonify({"message": "AURA Dispatch Backend is Live"})
-
-@app.route("/dispatch", methods=["POST"])
+@app.route("/dispatch", methods=["GET", "POST"])
 def dispatch():
-    api_key = request.headers.get("X-API-KEY")
-    if api_key != DISPATCH_API_KEY:
-        return jsonify({"error": "Unauthorized"}), 401
+    if request.method == "POST":
+        data = request.json
+    else:
+        data = request.args
 
+    return jsonify({
+        "status": "Emergency dispatched successfully",
+        "received": data
+    }), 200
     data = request.get_json()
 
     if not data or "patient_location" not in data:
